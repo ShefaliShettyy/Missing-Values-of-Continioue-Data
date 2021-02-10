@@ -1,0 +1,2 @@
+def imput_nan(df,variable,median):
+   df[variable+"_median"] = df[variable].fillna(median)
