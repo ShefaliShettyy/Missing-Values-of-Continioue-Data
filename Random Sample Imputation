@@ -1,0 +1,15 @@
+median= df.Age.median()
+median
+
+
+def impute_nan(df,variable):
+    #df[variable+"_median"]=df[variable].fillna(median)
+    df[variable+"_random"]=df[variable]
+    random_sample=df[variable].dropna().sample(df[variable].isnull().sum(),random_state=0)
+    random_sample.index=df[df[variable].isnull()].index
+    df.loc[df[variable].isnull(),variable+'_random']=random_sample
+    
+    
+    
+df.Age_random.plot(kind='kde')
+df.Age.plot(kind='kde')
