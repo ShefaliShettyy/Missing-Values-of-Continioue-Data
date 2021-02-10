@@ -1,0 +1,4 @@
+extend = df.variable.mean()+3*df.variable.std()
+def impute_nan(df,variable,median,extend)
+ df[variable+'_ED']=df[variable].fillna(extend)
+  df[variable].fillna(median, inplace=True)
